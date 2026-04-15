@@ -10,5 +10,9 @@
   "license": "MIT",
   "keywords": [
     "cheminformatics"
-  ]
+  ],
+  "packager": {
+    "name": "Daniel Stroe",
+    "url": "https://github.com/dstroe2000"
+  }
 }

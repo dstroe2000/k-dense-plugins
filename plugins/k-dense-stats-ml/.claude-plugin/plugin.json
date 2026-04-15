@@ -11,5 +11,9 @@
   "keywords": [
     "stats",
     "ml"
-  ]
+  ],
+  "packager": {
+    "name": "Daniel Stroe",
+    "url": "https://github.com/dstroe2000"
+  }
 }
