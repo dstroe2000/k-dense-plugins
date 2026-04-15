@@ -1,0 +1,23 @@
+{
+  "name": "k-dense-science",
+  "version": "1.0.0",
+  "description": "134 scientific agent skills with single-command routing. Based on K-Dense-AI/scientific-agent-skills.",
+  "author": {
+    "name": "K-Dense Inc.",
+    "url": "https://github.com/K-Dense-AI"
+  },
+  "packager": {
+    "name": "Daniel Stroe",
+    "url": "https://github.com/dstroe2000"
+  },
+  "repository": "https://github.com/dstroe2000/k-dense-plugins",
+  "license": "MIT",
+  "keywords": [
+    "science",
+    "research",
+    "bioinformatics",
+    "cheminformatics",
+    "machine-learning",
+    "data-science"
+  ]
+}

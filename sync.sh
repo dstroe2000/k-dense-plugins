@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 #
-# sync.sh — Populate plugin skill directories from upstream submodule
+# sync.sh — Sync upstream skills into the single k-dense-science plugin
 #
-# Reads skill-map.json, copies each skill's directory from upstream into
-# the correct plugin. Detects new upstream skills not yet mapped.
+# Copies all skills from upstream submodule into the plugin, injecting
+# disable-model-invocation: true so only the gateway /science command
+# is visible to Claude. Detects new upstream skills not yet in skill-map.json.
 #
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 UPSTREAM="$SCRIPT_DIR/upstream/scientific-skills"
-PLUGINS_DIR="$SCRIPT_DIR/plugins"
+PLUGIN_SKILLS="$SCRIPT_DIR/plugins/k-dense-science/skills"
 SKILL_MAP="$SCRIPT_DIR/skill-map.json"
 
 # Verify prerequisites
@@ -24,63 +25,58 @@ if [ ! -f "$SKILL_MAP" ]; then
     exit 1
 fi
 
-# Check for jq or use python fallback
-if command -v jq &>/dev/null; then
-    USE_JQ=true
-else
-    USE_JQ=false
-fi
-
-echo "=== Syncing skills from upstream ==="
+echo "=== Syncing skills into k-dense-science plugin ==="
 echo ""
 
-# Track all mapped skills for orphan detection
-MAPPED_SKILLS=""
-TOTAL_COPIED=0
+# Collect all skill names from skill-map.json
+ALL_SKILLS=$(python3 -c "
+import json
+data = json.load(open('$SKILL_MAP'))
+for plugin in data['plugins'].values():
+    for skill in plugin['skills']:
+        print(skill)
+")
+
+TOTAL=0
 ERRORS=0
 
-# Get plugin names
-if $USE_JQ; then
-    PLUGIN_NAMES=$(jq -r '.plugins | keys[]' "$SKILL_MAP")
-else
-    PLUGIN_NAMES=$(python3 -c "import json; [print(k) for k in json.load(open('$SKILL_MAP'))['plugins'].keys()]")
-fi
+for skill in $ALL_SKILLS; do
+    src="$UPSTREAM/$skill"
+    dst="$PLUGIN_SKILLS/$skill"
 
-for plugin in $PLUGIN_NAMES; do
-    plugin_skills_dir="$PLUGINS_DIR/$plugin/skills"
-
-    # Clean existing skills (full refresh)
-    rm -rf "$plugin_skills_dir"
-    mkdir -p "$plugin_skills_dir"
-
-    # Get skills for this plugin
-    if $USE_JQ; then
-        SKILLS=$(jq -r ".plugins.\"$plugin\".skills[]" "$SKILL_MAP")
-    else
-        SKILLS=$(python3 -c "import json; [print(s) for s in json.load(open('$SKILL_MAP'))['plugins']['$plugin']['skills']]")
+    if [ ! -d "$src" ]; then
+        echo "  WARNING: $skill not found in upstream"
+        ERRORS=$((ERRORS + 1))
+        continue
     fi
 
-    count=0
-    for skill in $SKILLS; do
-        MAPPED_SKILLS="$MAPPED_SKILLS $skill"
-        src="$UPSTREAM/$skill"
-        dst="$plugin_skills_dir/$skill"
-
-        if [ -d "$src" ]; then
-            cp -r "$src" "$dst"
-            count=$((count + 1))
-        else
-            echo "  WARNING: $skill not found in upstream"
-            ERRORS=$((ERRORS + 1))
-        fi
-    done
-
-    TOTAL_COPIED=$((TOTAL_COPIED + count))
-    echo "  $plugin: $count skills synced"
+    # Remove old copy, fresh sync
+    rm -rf "$dst"
+    cp -r "$src" "$dst"
+    TOTAL=$((TOTAL + 1))
 done
 
-echo ""
-echo "=== Total: $TOTAL_COPIED skills synced across $(echo "$PLUGIN_NAMES" | wc -w | tr -d ' ') plugins ==="
+# Patch all copied skills: inject disable-model-invocation: true
+PATCHED=$(python3 -c "
+import glob
+patched = 0
+for skill_md in glob.glob('$PLUGIN_SKILLS/*/SKILL.md'):
+    if '/science/SKILL.md' in skill_md:
+        continue
+    with open(skill_md) as f:
+        content = f.read()
+    if 'disable-model-invocation:' in content:
+        continue
+    if content.startswith('---'):
+        content = '---\ndisable-model-invocation: true\n' + content[4:]
+        with open(skill_md, 'w') as f:
+            f.write(content)
+        patched += 1
+print(patched)
+")
+
+echo "  $TOTAL skills synced"
+echo "  $PATCHED frontmatter patched (disable-model-invocation: true)"
 
 # Detect unmapped upstream skills
 echo ""
@@ -89,7 +85,7 @@ echo "=== Checking for unmapped upstream skills ==="
 UNMAPPED=0
 for skill_dir in "$UPSTREAM"/*/; do
     skill=$(basename "$skill_dir")
-    if ! echo "$MAPPED_SKILLS" | grep -qw "$skill"; then
+    if ! echo "$ALL_SKILLS" | grep -qw "$skill"; then
         echo "  UNMAPPED: $skill"
         UNMAPPED=$((UNMAPPED + 1))
     fi
@@ -107,5 +103,9 @@ if [ "$ERRORS" -gt 0 ]; then
     exit 1
 fi
 
+echo ""
+echo "=== Plugin structure ==="
+echo "  Gateway skill: /science (visible)"
+echo "  Hidden skills: $TOTAL (invoked by gateway)"
 echo ""
 echo "Done."
