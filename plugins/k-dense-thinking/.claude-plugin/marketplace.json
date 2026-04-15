@@ -1,0 +1,15 @@
+{
+  "name": "k-dense-thinking-marketplace",
+  "owner": {
+    "name": "K-Dense Inc.",
+    "url": "https://github.com/K-Dense-AI"
+  },
+  "plugins": [
+    {
+      "name": "k-dense-thinking",
+      "source": "./",
+      "description": "Decision analysis, brainstorming, and cognitive tools",
+      "version": "1.0.0"
+    }
+  ]
+}

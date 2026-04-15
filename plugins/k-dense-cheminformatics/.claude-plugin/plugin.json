@@ -1,0 +1,14 @@
+{
+  "name": "k-dense-cheminformatics",
+  "version": "1.0.0",
+  "description": "Cheminformatics, drug discovery, and molecular modeling",
+  "author": {
+    "name": "K-Dense Inc.",
+    "url": "https://github.com/K-Dense-AI"
+  },
+  "repository": "https://github.com/dstroe2000/scientific-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "cheminformatics"
+  ]
+}

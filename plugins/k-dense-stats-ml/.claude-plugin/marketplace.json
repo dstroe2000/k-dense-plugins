@@ -1,0 +1,15 @@
+{
+  "name": "k-dense-stats-ml-marketplace",
+  "owner": {
+    "name": "K-Dense Inc.",
+    "url": "https://github.com/K-Dense-AI"
+  },
+  "plugins": [
+    {
+      "name": "k-dense-stats-ml",
+      "source": "./",
+      "description": "Statistics, machine learning, and data science fundamentals",
+      "version": "1.0.0"
+    }
+  ]
+}

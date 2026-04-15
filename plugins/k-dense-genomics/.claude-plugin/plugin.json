@@ -1,0 +1,14 @@
+{
+  "name": "k-dense-genomics",
+  "version": "1.0.0",
+  "description": "Genomics, single-cell analysis, and bioinformatics",
+  "author": {
+    "name": "K-Dense Inc.",
+    "url": "https://github.com/K-Dense-AI"
+  },
+  "repository": "https://github.com/dstroe2000/scientific-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "genomics"
+  ]
+}

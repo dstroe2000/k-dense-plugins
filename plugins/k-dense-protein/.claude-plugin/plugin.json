@@ -1,0 +1,14 @@
+{
+  "name": "k-dense-protein",
+  "version": "1.0.0",
+  "description": "Protein engineering, design, and glycobiology",
+  "author": {
+    "name": "K-Dense Inc.",
+    "url": "https://github.com/K-Dense-AI"
+  },
+  "repository": "https://github.com/dstroe2000/scientific-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "protein"
+  ]
+}

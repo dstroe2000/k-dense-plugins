@@ -1,0 +1,15 @@
+{
+  "name": "k-dense-knowledge-marketplace",
+  "owner": {
+    "name": "K-Dense Inc.",
+    "url": "https://github.com/K-Dense-AI"
+  },
+  "plugins": [
+    {
+      "name": "k-dense-knowledge",
+      "source": "./",
+      "description": "Biomedical knowledge graphs and specialized databases",
+      "version": "1.0.0"
+    }
+  ]
+}

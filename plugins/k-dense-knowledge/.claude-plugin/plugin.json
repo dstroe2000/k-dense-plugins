@@ -1,0 +1,14 @@
+{
+  "name": "k-dense-knowledge",
+  "version": "1.0.0",
+  "description": "Biomedical knowledge graphs and specialized databases",
+  "author": {
+    "name": "K-Dense Inc.",
+    "url": "https://github.com/K-Dense-AI"
+  },
+  "repository": "https://github.com/dstroe2000/scientific-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "knowledge"
+  ]
+}

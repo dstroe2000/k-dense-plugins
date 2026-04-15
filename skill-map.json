@@ -1,0 +1,203 @@
+{
+  "plugins": {
+    "k-dense-stats-ml": {
+      "description": "Statistics, machine learning, and data science fundamentals",
+      "skills": [
+        "statistical-analysis",
+        "statsmodels",
+        "pymc",
+        "sympy",
+        "pymoo",
+        "scikit-learn",
+        "pytorch-lightning",
+        "transformers",
+        "torch-geometric",
+        "shap",
+        "umap-learn",
+        "stable-baselines3",
+        "pufferlib",
+        "aeon",
+        "timesfm-forecasting"
+      ]
+    },
+    "k-dense-data": {
+      "description": "Data processing, visualization, and infrastructure",
+      "skills": [
+        "polars",
+        "dask",
+        "vaex",
+        "networkx",
+        "exploratory-data-analysis",
+        "zarr-python",
+        "matplotlib",
+        "seaborn",
+        "scientific-visualization",
+        "markdown-mermaid-writing",
+        "modal",
+        "optimize-for-gpu",
+        "get-available-resources",
+        "simpy"
+      ]
+    },
+    "k-dense-writing": {
+      "description": "Scientific writing, research methodology, and communication",
+      "skills": [
+        "scientific-writing",
+        "scientific-brainstorming",
+        "scientific-critical-thinking",
+        "hypothesis-generation",
+        "peer-review",
+        "scholar-evaluation",
+        "literature-review",
+        "citation-management",
+        "pyzotero",
+        "venue-templates",
+        "research-grants",
+        "latex-posters",
+        "pptx-posters",
+        "scientific-slides"
+      ]
+    },
+    "k-dense-search": {
+      "description": "Paper search, web research, and document processing",
+      "skills": [
+        "paper-lookup",
+        "bgpt-paper-search",
+        "research-lookup",
+        "parallel-web",
+        "database-lookup",
+        "paperzilla",
+        "open-notebook",
+        "pdf",
+        "docx",
+        "pptx",
+        "xlsx",
+        "markitdown",
+        "generate-image",
+        "scientific-schematics",
+        "infographics"
+      ]
+    },
+    "k-dense-thinking": {
+      "description": "Decision analysis, brainstorming, and cognitive tools",
+      "skills": [
+        "consciousness-council",
+        "what-if-oracle",
+        "dhdna-profiler",
+        "market-research-reports",
+        "hypogenic"
+      ]
+    },
+    "k-dense-genomics": {
+      "description": "Genomics, single-cell analysis, and bioinformatics",
+      "skills": [
+        "anndata",
+        "scanpy",
+        "scvelo",
+        "scvi-tools",
+        "cellxgene-census",
+        "pysam",
+        "pydeseq2",
+        "deeptools",
+        "tiledbvcf",
+        "polars-bio",
+        "gtars",
+        "geniml",
+        "arboreto",
+        "biopython",
+        "gget",
+        "bioservices",
+        "scikit-bio",
+        "flowio",
+        "phylogenetics",
+        "etetoolkit"
+      ]
+    },
+    "k-dense-cheminformatics": {
+      "description": "Cheminformatics, drug discovery, and molecular modeling",
+      "skills": [
+        "rdkit",
+        "datamol",
+        "medchem",
+        "molfeat",
+        "diffdock",
+        "torchdrug",
+        "pytdc",
+        "rowan",
+        "molecular-dynamics",
+        "deepchem"
+      ]
+    },
+    "k-dense-protein": {
+      "description": "Protein engineering, design, and glycobiology",
+      "skills": [
+        "esm",
+        "glycoengineering",
+        "adaptyv"
+      ]
+    },
+    "k-dense-clinical": {
+      "description": "Clinical healthcare, medical imaging, and regulatory",
+      "skills": [
+        "clinical-reports",
+        "clinical-decision-support",
+        "treatment-plans",
+        "pyhealth",
+        "iso-13485-certification",
+        "pydicom",
+        "histolab",
+        "pathml",
+        "imaging-data-commons",
+        "scikit-survival"
+      ]
+    },
+    "k-dense-lab": {
+      "description": "Laboratory automation and platform integrations",
+      "skills": [
+        "benchling-integration",
+        "dnanexus-integration",
+        "latchbio-integration",
+        "omero-integration",
+        "opentrons-integration",
+        "protocolsio-integration",
+        "labarchive-integration",
+        "ginkgo-cloud-lab",
+        "pylabrobot",
+        "lamindb"
+      ]
+    },
+    "k-dense-quantum": {
+      "description": "Quantum computing frameworks and simulation",
+      "skills": [
+        "qiskit",
+        "cirq",
+        "pennylane",
+        "qutip"
+      ]
+    },
+    "k-dense-physics": {
+      "description": "Physics, engineering, geospatial, and neuroscience",
+      "skills": [
+        "astropy",
+        "fluidsim",
+        "matlab",
+        "pymatgen",
+        "cobrapy",
+        "geomaster",
+        "geopandas",
+        "neuropixels-analysis",
+        "neurokit2",
+        "matchms",
+        "pyopenms"
+      ]
+    },
+    "k-dense-knowledge": {
+      "description": "Biomedical knowledge graphs and specialized databases",
+      "skills": [
+        "primekg",
+        "depmap",
+        "usfiscaldata"
+      ]
+    }
+  }
+}

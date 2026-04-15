@@ -1,0 +1,14 @@
+{
+  "name": "k-dense-lab",
+  "version": "1.0.0",
+  "description": "Laboratory automation and platform integrations",
+  "author": {
+    "name": "K-Dense Inc.",
+    "url": "https://github.com/K-Dense-AI"
+  },
+  "repository": "https://github.com/dstroe2000/scientific-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "lab"
+  ]
+}

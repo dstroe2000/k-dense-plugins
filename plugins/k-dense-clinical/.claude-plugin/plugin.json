@@ -1,0 +1,14 @@
+{
+  "name": "k-dense-clinical",
+  "version": "1.0.0",
+  "description": "Clinical healthcare, medical imaging, and regulatory",
+  "author": {
+    "name": "K-Dense Inc.",
+    "url": "https://github.com/K-Dense-AI"
+  },
+  "repository": "https://github.com/dstroe2000/scientific-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "clinical"
+  ]
+}
